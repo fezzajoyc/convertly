@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+/* 站点皮肤:精密工具蓝灰(换算站专用) */
+:root {
+  --background: #edf1f7;
+  --foreground: #1c2534;
+  --brand: #3d5afe;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-ink: var(--foreground);
+  --color-brand: var(--brand);
+  --font-sans: ui-sans-serif, -apple-system, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body { background: var(--background); color: var(--foreground); font-family: var(--font-sans); }
