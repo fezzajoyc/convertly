@@ -1,0 +1,15 @@
+name: Debug pair page
+on: workflow_dispatch
+jobs:
+  dbg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe live pair page
+        run: |
+          echo "=== headers ==="
+          curl -s -o /tmp/page.html -D - -m 30 "https://convertly-jade.vercel.app/convert/cm-to-inches" | head -12
+          echo "=== body head ==="
+          head -c 600 /tmp/page.html
+          echo
+          echo "=== title ==="
+          grep -oE "<title>[^<]*</title>" /tmp/page.html || true
