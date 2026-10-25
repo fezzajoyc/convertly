@@ -1,0 +1,11 @@
+name: Debug more pairs
+on: workflow_dispatch
+jobs:
+  dbg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe multiple paths
+        run: |
+          for p in "/" "/convert/kg-to-lbs" "/convert/miles-to-km" "/convert/165-cm-to-inches" "/category/length" "/convert/c-to-f"; do
+            echo "$p -> $(curl -s -o /dev/null -w '%{http_code}' -m 20 https://convertly-jade.vercel.app$p)"
+          done
